@@ -30,16 +30,6 @@ layout: default
     <span class="bench-note">Live simulations. Try them.</span>
   </div>
   <div class="bench-grid">
-    <figure class="rig rig-arm">
-      <div class="rig-top"><span>RIG 01 &middot; 2-link arm &middot; inverse kinematics</span><span id="arm-mode">Auto path</span></div>
-      <canvas id="arm" aria-label="Robot arm that follows your cursor. Click to close the gripper."></canvas>
-      <div class="rig-bottom">
-        <span>&theta;<sub>1</sub> <b id="arm-t1">0.0&deg;</b></span>
-        <span>&theta;<sub>2</sub> <b id="arm-t2">0.0&deg;</b></span>
-        <span>Tip <b id="arm-xy">0, 0 mm</b></span>
-        <span class="hint">Point to move &middot; click to grip</span>
-      </div>
-    </figure>
     <figure class="rig rig-bot">
       <div class="rig-top"><span>RIG 02 &middot; Balance bot &middot; PID</span><span id="bot-state">Balanced</span></div>
       <canvas id="bot" aria-label="Self-balancing robot. Click to push it and watch the PID controller recover."></canvas>

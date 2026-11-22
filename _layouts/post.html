@@ -8,13 +8,13 @@ layout: default
       <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time>
       {% if page.event %}<span>{{ page.event }}</span>{% endif %}
     </p>
-    <h1 class="split" data-reveal>{{ page.title }}</h1>
+    <h1 class="split" data-reveal style="view-transition-name: t-{{ page.slug }}">{{ page.title }}</h1>
     {% if page.summary %}<p class="summary" data-reveal>{{ page.summary }}</p>{% endif %}
     {% if page.result %}<p class="result" data-reveal>{{ page.result }}</p>{% endif %}
   </header>
 
   {% if page.cover %}
-  <figure class="cover" data-scrub><img src="{{ page.cover | relative_url }}" alt="{{ page.title }}"></figure>
+  <figure class="cover" data-scrub><img src="{{ page.cover | relative_url }}" alt="{{ page.title }}" style="view-transition-name: c-{{ page.slug }}"></figure>
   {% endif %}
 
   <div class="prose">

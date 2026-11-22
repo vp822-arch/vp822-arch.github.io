@@ -1,9 +1,27 @@
 ---
 layout: default
 ---
-<section class="intro">
-  <h1>Varun<br>Pisharody</h1>
-  <p class="lede">{{ site.tagline }}</p>
+{% assign comps = 0 %}{% for p in site.posts %}{% if p.category == "competition" %}{% assign comps = comps | plus: 1 %}{% endif %}{% endfor %}
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">Electrical Engineering &middot; NJIT &rsquo;30</p>
+    <h1 class="name"><span class="letters">Varun</span> <span class="letters">Pisharody</span></h1>
+    <p class="lede">{{ site.tagline }}</p>
+    <dl class="stats">
+      <div><dt>Posts</dt><dd>{{ site.posts.size }}</dd></div>
+      <div><dt>Competitions</dt><dd>{{ comps }}</dd></div>
+      <div><dt>Based in</dt><dd>{{ site.location }}</dd></div>
+    </dl>
+  </div>
+
+  <figure class="scope" aria-label="Animated oscilloscope showing a PID step response">
+    <div class="scope-top"><span>CH1 &middot; Step response</span><span class="live"><i></i>Live</span></div>
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="scope-bottom">
+      <span class="readout" id="readout">&zeta; 0.30 &middot; overshoot 37%</span>
+      <span class="hint">Move your cursor across to tune the damping</span>
+    </div>
+  </figure>
 </section>
 
 <section class="log" aria-labelledby="log-title">
@@ -22,10 +40,10 @@ layout: default
       <time class="when" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y.%m.%d" }}</time>
       <div class="entry-body">
         <p class="meta"><span class="kind kind-{{ post.category }}">{{ post.category | upcase }}</span>{% if post.result %}<span class="result-chip">{{ post.result }}</span>{% endif %}</p>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <h3><a href="{{ post.url | relative_url }}" style="view-transition-name: t-{{ post.slug }}">{{ post.title }}</a></h3>
         {% if post.summary %}<p class="excerpt">{{ post.summary }}</p>{% endif %}
       </div>
-      {% if post.cover %}<a class="thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ post.cover | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+      {% if post.cover %}<a class="thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ post.cover | relative_url }}" alt="" loading="lazy" style="view-transition-name: c-{{ post.slug }}"></a>{% endif %}
     </li>
     {% endfor %}
   </ol>

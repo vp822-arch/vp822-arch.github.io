@@ -1,0 +1,59 @@
+# Pages CMS settings: this is what makes the editor at app.pagescms.org work.
+media:
+  input: images
+  output: /images
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, category]
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: category
+        label: Type
+        type: select
+        options:
+          values: [project, competition]
+      - name: event
+        label: Event (competitions only, e.g. "Viam Hackathon, New York")
+        type: string
+      - name: result
+        label: Result or award (optional)
+        type: string
+      - name: summary
+        label: One-line summary (shows on the home page)
+        type: text
+      - name: cover
+        label: Cover photo
+        type: image
+      - name: youtube
+        label: YouTube link (optional, paste the full URL)
+        type: string
+      - name: video
+        label: Video file (optional, short clips under ~50 MB)
+        type: file
+      - name: gallery
+        label: Photo gallery (optional, add as many as you want)
+        type: image
+        list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: body
+        label: Write-up
+        type: rich-text

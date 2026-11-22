@@ -259,3 +259,21 @@ body::before { content: ""; position: fixed; inset: -40px; z-index: -1; pointer-
   * { transition: none !important; animation: none !important; }
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* ---------- Workbench: live robotics sims ---------- */
+.bench { padding: 30px 0 10px; border-bottom: 1px solid var(--rule); }
+.bench-note { font: 12.5px var(--font-mono); color: var(--muted); }
+.bench-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 10px; padding-bottom: 26px; }
+.rig { margin: 0; background: var(--scope-bg); color: var(--scope-ink); border: 1px solid var(--ink); border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; box-shadow: 0 18px 40px -26px rgba(10, 20, 30, .5); }
+.rig canvas { display: block; width: 100%; flex: 1; min-height: 280px; touch-action: none; }
+.rig-arm canvas { cursor: crosshair; }
+.rig-bot canvas { cursor: pointer; }
+.rig-top, .rig-bottom { display: flex; justify-content: space-between; gap: 6px 14px; flex-wrap: wrap; font: 11px var(--font-mono); letter-spacing: .05em; text-transform: uppercase; opacity: .9; }
+.rig-top { margin-bottom: 8px; }
+.rig-top span:last-child { color: var(--scope-trace); }
+.rig-bottom { margin-top: 8px; justify-content: flex-start; text-transform: none; }
+.rig-bottom b { color: var(--scope-trace); font-weight: 500; font-variant-numeric: tabular-nums; display: inline-block; min-width: 5.5ch; }
+.rig-bottom sub { font-size: .75em; }
+.rig-bottom .hint { margin-left: auto; text-transform: none; letter-spacing: 0; opacity: .6; }
+.motion .rig[data-reveal]:not(.in) { transform: translateY(28px) scale(.98); }
+@media (max-width: 760px) { .bench-grid { grid-template-columns: 1fr; } .rig canvas { min-height: 240px; } }

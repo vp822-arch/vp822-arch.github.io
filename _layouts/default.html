@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.tagline }}{% endif %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+{% if page.layout == "post" %}<div class="progress" aria-hidden="true"></div>{% endif %}
+<div class="sheet">
+  <header class="strip">
+    <a class="home" href="{{ '/' | relative_url }}">VARUN PISHARODY</a>
+    <nav aria-label="Main">
+      <a href="{{ '/' | relative_url }}">Posts</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="https://github.com/{{ site.github }}">GitHub</a>
+      <a href="https://www.linkedin.com/in/{{ site.linkedin }}">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main>
+{{ content }}
+  </main>
+
+  <footer class="titleblock">
+    <div><small>Drawn by</small><b>{{ site.title }}</b></div>
+    <div><small>Location</small>{{ site.location }}</div>
+    <div><small>Contact</small><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+    <div><small>Sheet</small>{{ site.time | date: "%Y" }}</div>
+  </footer>
+</div>
+<script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

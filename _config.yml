@@ -1,0 +1,24 @@
+# Site settings. Edit these, then save. GitHub rebuilds the site in about a minute.
+title: Varun Pisharody
+tagline: Electrical Engineering student at NJIT. Notes from the bench, the lab and the competition floor.
+email: vp822@njit.edu
+github: vp822-arch
+linkedin: varun-pisharody
+location: Newark, NJ
+
+# If your repo is named vp822-arch.github.io, leave baseurl empty.
+# If it has another name (for example "website"), set baseurl: "/website"
+baseurl: ""
+url: "https://vp822-arch.github.io"
+
+permalink: /:year/:title/
+markdown: kramdown
+timezone: America/New_York
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+exclude:
+  - .pages.yml
+  - HOW-TO-POST.md
+  - README.md

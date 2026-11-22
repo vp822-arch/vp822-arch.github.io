@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head">
+    <p class="meta" data-reveal>
+      <span class="kind kind-{{ page.category }}">{{ page.category | upcase }}</span>
+      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.event %}<span>{{ page.event }}</span>{% endif %}
+    </p>
+    <h1 class="split" data-reveal>{{ page.title }}</h1>
+    {% if page.summary %}<p class="summary" data-reveal>{{ page.summary }}</p>{% endif %}
+    {% if page.result %}<p class="result" data-reveal>{{ page.result }}</p>{% endif %}
+  </header>
+
+  {% if page.cover %}
+  <figure class="cover" data-scrub><img src="{{ page.cover | relative_url }}" alt="{{ page.title }}"></figure>
+  {% endif %}
+
+  <div class="prose">
+{{ content }}
+  </div>
+
+  {% if page.youtube and page.youtube != "" %}
+    {% assign yt = page.youtube | split: "v=" | last | split: "&" | first | split: "?" | first | split: "/" | last %}
+  <figure class="video" data-reveal>
+    <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/{{ yt }}" title="Video: {{ page.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  </figure>
+  {% endif %}
+
+  {% if page.video and page.video != "" %}
+  <figure class="video" data-reveal>
+    <video src="{{ page.video | relative_url }}" controls preload="metadata" playsinline></video>
+  </figure>
+  {% endif %}
+
+  {% if page.gallery.size > 0 %}
+  <section class="gallery" aria-label="Photos">
+    <div class="gallery-head">
+      <span>Photos</span>
+      <span class="count">{{ page.gallery.size }}</span>
+    </div>
+    <div class="reel" tabindex="0">
+      {% for p in page.gallery %}<figure class="shot"><img src="{{ p | relative_url }}" alt="Photo {{ forloop.index }} from {{ page.title }}" loading="lazy"></figure>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if page.tags.size > 0 %}
+  <p class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+  {% endif %}
+
+  <nav class="post-nav" aria-label="More posts">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>Older</small>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><small>Newer</small>{{ page.next.title }}</a>{% endif %}
+  </nav>
+</article>

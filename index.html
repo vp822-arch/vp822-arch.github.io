@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<section class="intro">
+  <h1>Varun<br>Pisharody</h1>
+  <p class="lede">{{ site.tagline }}</p>
+</section>
+
+<section class="log" aria-labelledby="log-title">
+  <div class="log-head">
+    <h2 id="log-title">Log</h2>
+    <div class="filters" role="group" aria-label="Filter posts">
+      <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter" data-filter="project" aria-pressed="false">Projects</button>
+      <button type="button" class="filter" data-filter="competition" aria-pressed="false">Competitions</button>
+    </div>
+  </div>
+
+  <ol class="entries">
+    {% for post in site.posts %}
+    <li class="entry" data-kind="{{ post.category }}">
+      <time class="when" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+      <div class="entry-body">
+        <p class="meta"><span class="kind kind-{{ post.category }}">{{ post.category | upcase }}</span>{% if post.result %}<span class="result-chip">{{ post.result }}</span>{% endif %}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.summary %}<p class="excerpt">{{ post.summary }}</p>{% endif %}
+      </div>
+      {% if post.cover %}<a class="thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ post.cover | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="empty" hidden>No posts in this category yet.</p>
+</section>

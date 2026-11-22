@@ -263,7 +263,7 @@ body::before { content: ""; position: fixed; inset: -40px; z-index: -1; pointer-
 /* ---------- Workbench: live robotics sims ---------- */
 .bench { padding: 30px 0 10px; border-bottom: 1px solid var(--rule); }
 .bench-note { font: 12.5px var(--font-mono); color: var(--muted); }
-.bench-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 18px; margin-top: 10px; padding-bottom: 26px; }
+.bench-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 10px; padding-bottom: 26px; }
 .rig { margin: 0; background: var(--scope-bg); color: var(--scope-ink); border: 1px solid var(--ink); border-radius: 6px; padding: 10px 12px; display: flex; flex-direction: column; box-shadow: 0 18px 40px -26px rgba(10, 20, 30, .5); }
 .rig canvas { display: block; width: 100%; flex: 1; min-height: 280px; touch-action: none; }
 .rig-arm canvas { cursor: crosshair; }
@@ -277,3 +277,4 @@ body::before { content: ""; position: fixed; inset: -40px; z-index: -1; pointer-
 .rig-bottom .hint { margin-left: auto; text-transform: none; letter-spacing: 0; opacity: .6; }
 .motion .rig[data-reveal]:not(.in) { transform: translateY(28px) scale(.98); }
 @media (max-width: 760px) { .bench-grid { grid-template-columns: 1fr; } .rig canvas { min-height: 240px; } }
+.rig-bot canvas { min-height: 320px; }

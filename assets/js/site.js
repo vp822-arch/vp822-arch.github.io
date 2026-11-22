@@ -162,7 +162,7 @@
   });
 
   /* ---------- Reveal on enter ---------- */
-  document.querySelectorAll(".entry, .prose > p > img, .prose > h2, .video, .gallery, .tags").forEach(function (el) {
+  document.querySelectorAll(".rig, .entry, .prose > p > img, .prose > h2, .video, .gallery, .tags").forEach(function (el) {
     el.setAttribute("data-reveal", "");
   });
   var io = new IntersectionObserver(function (list) {
